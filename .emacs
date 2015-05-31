@@ -12,3 +12,11 @@
  (setq visible-bell nil
        ring-bell-function 'my-terminal-visible-bell)
 
+;; Load yasnippets-snippets
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/mysnippets/"
+	"~/.emacs.d/yasnippet-snippets/")
+      )
+(yas-global-mode 1)
+
