@@ -12,6 +12,8 @@
  (setq visible-bell nil
        ring-bell-function 'my-terminal-visible-bell)
 
+
+
 ;; Load yasnippets-snippets
 (require 'yasnippet)
 (setq yas-snippet-dirs
@@ -20,3 +22,8 @@
       )
 (yas-global-mode 1)
 
+;; (require 'color-theme)			
+;; (color-theme-initialize)
+;; (color-theme-charcoal-black)
+
+;; https://github.com/smihica/emmet-mode
