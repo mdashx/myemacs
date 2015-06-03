@@ -1,4 +1,13 @@
 
+(setq inhibit-startup-message t)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(setq split-width-threshold 1) ;; split horizontal instead of vertical - http://stackoverflow.com/questions/7997590/how-to-change-the-default-split-screen-direction
+;; (setq-default display-buffer-reuse-frames t)
+;; (setq display-buffer-reuse-window t)
+(scroll-bar-mode -1)
+(setq make-backup-files nil)
+
 ;; Enable command and option keys when in OS X
 (setq mac-command-modifier 'control)
 (setq mac-option-modifier 'meta)
@@ -11,8 +20,6 @@
  
  (setq visible-bell nil
        ring-bell-function 'my-terminal-visible-bell)
-
-
 
 ;; Load yasnippets-snippets
 (require 'yasnippet)
