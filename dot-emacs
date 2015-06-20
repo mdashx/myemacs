@@ -46,3 +46,13 @@
 (ido-mode 1 )				
 
 (setq tramp-default-method "ssh")
+
+;; http://www.emacswiki.org/emacs/VisualLineMode
+(load-file "~/.emacs.d/visual-line-columns.el")
+
+(defun toggle-wrap ()
+  (if (eq (symbol-value 'visual-wrap-column) nil)
+      (set-visual-wrap-column 70)
+    (set-visual-wrap-column nil)))
+
+(global-set-key (kbd "<f9>") (lambda () (interactive) (toggle-wrap)))
