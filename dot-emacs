@@ -56,5 +56,6 @@
     (set-visual-wrap-column nil)))
 
 (global-set-key (kbd "<f9>") (lambda () (interactive) (toggle-wrap)))
+(global-set-key (kbd "<f10>") (lambda () (interactive) (toggle-wrap)))
 
 (global-set-key (kbd "<f8>") 'whitespace-mode)
