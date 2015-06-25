@@ -4,11 +4,12 @@
              '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/"))
 (package-initialize)
 
-
 (let ((default-directory "~/.emacs.d/lisp/"))
   (normal-top-level-add-to-load-path '("."))
   (normal-top-level-add-subdirs-to-load-path))
 
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
+    (setq exec-path (append exec-path '("/usr/local/bin/")))
 
 (setq inhibit-startup-message t)
 (menu-bar-mode -1)
