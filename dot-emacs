@@ -65,3 +65,7 @@
 (global-set-key (kbd "<f10>") (lambda () (interactive) (toggle-wrap)))
 
 (global-set-key (kbd "<f8>") 'whitespace-mode)
+
+;; https://github.com/capitaomorte/autopair
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
