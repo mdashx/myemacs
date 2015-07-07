@@ -69,3 +69,11 @@
 ;; https://github.com/capitaomorte/autopair
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers
+
+;; http://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+(autoload 'py-shell "python-mode" "Python shell." t)
+(require 'flymake-python-pyflakes)
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
