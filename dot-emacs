@@ -93,6 +93,12 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   ;; (setq web-mode-enable-engine-detection t)
+
+  (add-to-list 'web-mode-indentation-params '("lineup-args" . t))
+  (add-to-list 'web-mode-indentation-params '("lineup-calls" . t))
+  (add-to-list 'web-mode-indentation-params '("lineup-concats" . t))
+  (add-to-list 'web-mode-indentation-params '("lineup-ternary" . t))
+
 )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
