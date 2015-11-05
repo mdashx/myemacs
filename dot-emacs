@@ -103,9 +103,13 @@
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
 
- ;; (autoload 'asm86-mode "<location>/asm86-mode.elc")
- ;; (setq auto-mode-alist 
- ;;    (append '(("\\.asm\\'" . asm86-mode) ("\\.inc\\'" . asm86-mode)) 
- ;;    auto-mode-alist))
+;; (autoload 'asm86-mode "<location>/asm86-mode.elc")
+;; (setq auto-mode-alist 
+;;    (append '(("\\.asm\\'" . asm86-mode) ("\\.inc\\'" . asm86-mode)) 
+;;    auto-mode-alist))
 
+;; To install clojure mode
+;; https://github.com/clojure-emacs/clojure-mode
+
+;; (require 'nodejs-repl)
 
