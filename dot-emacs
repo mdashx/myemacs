@@ -113,3 +113,10 @@
 
 ;; (require 'nodejs-repl)
 
+(setq pop-up-windows nil)
+;; (set-window-fringes nil 0 2)
+
+;; (set-default-font "Ubuntu Mono 11")
+;; (set-face-attribute 'default nil :height 108)
+;; Change directory back
+;; (cd "/home/tom/")
