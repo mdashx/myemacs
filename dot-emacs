@@ -144,3 +144,9 @@
 ;; Standard Jedi.el setting
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
+
+;; I'm deciding not to use linting in the editor for Python
+;; because I'm coding in Emacs running on OS X, but all of the
+;; code is actually executed in various virutal environments
+;; on a Linux VM. So I'll just run pylint on the command line
+;; from now on.
