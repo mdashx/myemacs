@@ -158,3 +158,8 @@
 ;; (`C-+’ or ‘C--’ to repeat). To restore the default (global) face 
 ;; height, type ‘C-x C-0’. ‘S-mouse-1’ pops up a menu where you 
 ;; can choose these same actions.
+
+;; Insert time stamp using 'date' shell command
+;; http://stackoverflow.com/questions/251908/how-can-i-insert-current-date-and-time-into-a-file-using-emacs
+;; C-u M-! date
+;; Tue Sep 30 22:48:14 CDT 2014
