@@ -150,3 +150,11 @@
 ;; code is actually executed in various virutal environments
 ;; on a Linux VM. So I'll just run pylint on the command line
 ;; from now on.
+
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; Vanilla Emacs: You can use `C-x C-+’ and ‘C-x C--’ 
+;; (‘text-scale-adjust’) to increase or decrease the buffer text size 
+;; (`C-+’ or ‘C--’ to repeat). To restore the default (global) face 
+;; height, type ‘C-x C-0’. ‘S-mouse-1’ pops up a menu where you 
+;; can choose these same actions.
