@@ -163,3 +163,7 @@
 ;; http://stackoverflow.com/questions/251908/how-can-i-insert-current-date-and-time-into-a-file-using-emacs
 ;; C-u M-! date
 ;; Tue Sep 30 22:48:14 CDT 2014
+
+(setq org-src-fontify-natively t)
+
+(load-theme 'wombat t)
