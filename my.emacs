@@ -18,3 +18,9 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
+;; Indentation
+(setq-default indent-tabs-mode nil)
+
+;; Auto-completion
+(electric-pair-mode)
+(show-paren-mode)
