@@ -1,6 +1,7 @@
 ;; goes in .emac.d/lisp/
 
 (load-theme 'wombat t)
+(powerline-default-theme)
 
 ;; http://stackoverflow.com/questions/18210631/how-to-change-the-character-composing-the-emacs-vertical-border
 ;; Reverse colors for the border to have nicer line

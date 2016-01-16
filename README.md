@@ -7,8 +7,7 @@ Should all hooks go on in one place, and then their specific actions in a differ
 
 * How do other Emacs setups handling the load path?
 * Replace Ido with Helm
-* Add better mode line
-* Get mode line glyphs in terminal?
+* Get powerline glyphs in terminal?
 * Do a better job of setting up autocompletion
 * Why does my Ctrl-C 0 shortcut to toggle linewrap sometimes crash Emacs in the terminal?
 * Define header templates for different types of source code files - use git config vars?
