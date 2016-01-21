@@ -24,3 +24,6 @@
 ;; Auto-completion
 (electric-pair-mode)
 (show-paren-mode)
+
+;; Helm
+(require 'my-helm)
