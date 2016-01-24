@@ -27,3 +27,6 @@
 
 ;; Helm
 (require 'my-helm)
+
+;; Web Mode
+(require 'my-web-mode)
