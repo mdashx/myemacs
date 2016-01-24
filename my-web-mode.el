@@ -18,3 +18,12 @@
   (add-to-list 'web-mode-indentation-params '("lineup-ternary" . nil))
   )
 
+
+;; If you wan’t to force autoclosing, autopairing even in a terminal, add (setq web-mode-enable-auto-closing t) and (setq web-mode-enable-auto-pairing t) in your .emacs 
+
+(setq web-mode-enable-auto-closing t)
+
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+(provide 'my-web-mode)
+
