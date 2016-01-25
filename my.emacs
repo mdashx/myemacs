@@ -25,8 +25,19 @@
 (electric-pair-mode)
 (show-paren-mode)
 
-;; Helm
+;; Mode-specific customizations
 (require 'my-helm)
-
-;; Web Mode
 (require 'my-web-mode)
+
+;; Highlight Lines
+(add-hook 'web-mode-hook 'hl-line-mode 1)
+
+(put 'upcase-region 'disabled nil)
+
+(defun my-word-wrap ()
+  (visual-line-mode)
+  (visual-fill-column-mode)
+  )
+
+(global-set-key (kbd "C-c 0")
+                (lambda() (interactive) (my-word-wrap)))
