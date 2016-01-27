@@ -41,3 +41,5 @@
 
 (global-set-key (kbd "C-c 0")
                 (lambda() (interactive) (my-word-wrap)))
+
+(add-hook 'before-save-hook 'gofmt-before-save)
