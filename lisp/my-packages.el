@@ -25,3 +25,5 @@
   (dolist (p my-packages)
     (when (not (package-installed-p p))
             (package-install p))))
+
+(provide 'my-packages)
