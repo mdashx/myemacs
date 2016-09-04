@@ -7,7 +7,6 @@ tmp*
 *_tmp*
 tmp/
 .DS_Store
-old/
 /test/
 */test/*
 commit.txt

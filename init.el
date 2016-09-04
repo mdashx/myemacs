@@ -44,4 +44,7 @@
 
 (add-hook 'before-save-hook 'gofmt-before-save)
 
-(global-auto-revert-mode)
+(global-auto-revert-mode t)
+;; (require 'ignore-modification-time)
+
+(require 'install-packages)

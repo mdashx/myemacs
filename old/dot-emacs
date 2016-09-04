@@ -1,0 +1,172 @@
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/"))
+(package-initialize)
+
+(let ((default-directory "~/.emacs.d/lisp/"))
+  (normal-top-level-add-to-load-path '("."))
+  (normal-top-level-add-subdirs-to-load-path))
+
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
+    (setq exec-path (append exec-path '("/usr/local/bin/")))
+
+(setq inhibit-startup-message t)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(setq split-width-threshold 1) ;; split horizontal instead of vertical - http://stackoverflow.com/questions/7997590/how-to-change-the-default-split-screen-direction
+;; (setq-default display-buffer-reuse-frames t)
+;; (setq display-buffer-reuse-window t)
+(scroll-bar-mode -1)
+(setq make-backup-files nil)
+
+;; Enable command and option keys when in OS X
+(setq mac-command-modifier 'control)
+(setq mac-option-modifier 'meta)
+
+;; http://www.emacswiki.org/emacs/AlarmBell#toc11
+(defun my-terminal-visible-bell ()
+   "A friendlier visual bell effect."
+   (invert-face 'mode-line)
+   (run-with-timer 0.1 nil 'invert-face 'mode-line))
+ 
+ (setq visible-bell nil
+       ring-bell-function 'my-terminal-visible-bell)
+
+;; Load yasnippets-snippets
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/mysnippets/"
+	"~/.emacs.d/yasnippet-snippets/")
+      )
+(yas-global-mode 1)
+
+;; (require 'color-theme)			
+;; (color-theme-initialize)
+;; (color-theme-charcoal-black)
+
+;; https://github.com/smihica/emmet-mode
+
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1 )				
+
+(setq tramp-default-method "ssh")
+
+;; http://www.emacswiki.org/emacs/VisualLineMode
+(load-file "~/.emacs.d/visual-line-columns.el")
+
+(defun toggle-wrap ()
+  (if (eq (symbol-value 'visual-wrap-column) nil)
+      (set-visual-wrap-column 70)
+    (set-visual-wrap-column nil)))
+
+(global-set-key (kbd "<f9>") (lambda () (interactive) (toggle-wrap)))
+(global-set-key (kbd "<f10>") (lambda () (interactive) (toggle-wrap)))
+
+(global-set-key (kbd "<f8>") 'whitespace-mode)
+
+;; https://github.com/capitaomorte/autopair
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
+
+;; http://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+(autoload 'py-shell "python-mode" "Python shell." t)
+(require 'flymake-python-pyflakes)
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+
+(autoload 'js3-mode "js3-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+
+(setq-default indent-tabs-mode nil)
+
+;; http://web-mode.org/
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  ;; (setq web-mode-enable-engine-detection t)
+
+  (add-to-list 'web-mode-indentation-params '("lineup-args" . t))
+  (add-to-list 'web-mode-indentation-params '("lineup-calls" . t))
+  (add-to-list 'web-mode-indentation-params '("lineup-concats" . t))
+  (add-to-list 'web-mode-indentation-params '("lineup-ternary" . t))
+
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+
+;; (autoload 'asm86-mode "<location>/asm86-mode.elc")
+;; (setq auto-mode-alist 
+;;    (append '(("\\.asm\\'" . asm86-mode) ("\\.inc\\'" . asm86-mode)) 
+;;    auto-mode-alist))
+
+;; To install clojure mode
+;; https://github.com/clojure-emacs/clojure-mode
+
+;; (require 'nodejs-repl)
+
+(setq pop-up-windows nil)
+;; (set-window-fringes nil 0 2)
+
+;; (set-default-font "Ubuntu Mono 11")
+;; (set-face-attribute 'default nil :height 108)
+;; Change directory back
+;; (cd "/home/tom/")
+
+(add-to-list 'default-frame-alist '(font . "Monaco 10" ))
+(set-face-attribute 'default t :font "Monaco 10" )
+
+
+(add-to-list 'default-frame-alist '(height . 65))
+(add-to-list 'default-frame-alist '(width . 236))
+
+(show-paren-mode)
+
+;; Pymacs
+;; (autoload 'pymacs-apply "pymacs")
+;; (autoload 'pymacs-call "pymacs")
+;; (autoload 'pymacs-eval "pymacs" nil t)
+;; (autoload 'pymacs-exec "pymacs" nil t)
+;; (autoload 'pymacs-load "pymacs" nil t)
+;; (autoload 'pymacs-autoload "pymacs")
+
+;; (require 'pymacs)
+;; (pymacs-load "ropemacs" "rope-")
+
+;; Standard Jedi.el setting
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
+;; I'm deciding not to use linting in the editor for Python
+;; because I'm coding in Emacs running on OS X, but all of the
+;; code is actually executed in various virutal environments
+;; on a Linux VM. So I'll just run pylint on the command line
+;; from now on.
+
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; Vanilla Emacs: You can use `C-x C-+’ and ‘C-x C--’ 
+;; (‘text-scale-adjust’) to increase or decrease the buffer text size 
+;; (`C-+’ or ‘C--’ to repeat). To restore the default (global) face 
+;; height, type ‘C-x C-0’. ‘S-mouse-1’ pops up a menu where you 
+;; can choose these same actions.
+
+;; Insert time stamp using 'date' shell command
+;; http://stackoverflow.com/questions/251908/how-can-i-insert-current-date-and-time-into-a-file-using-emacs
+;; C-u M-! date
+;; Tue Sep 30 22:48:14 CDT 2014
+
+(setq org-src-fontify-natively t)
+
+(load-theme 'wombat t)
+
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
