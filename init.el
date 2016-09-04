@@ -18,6 +18,8 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
+(require 'my-packages)
+
 ;; Indentation
 (setq-default indent-tabs-mode nil)
 
@@ -47,4 +49,4 @@
 (global-auto-revert-mode t)
 ;; (require 'ignore-modification-time)
 
-(require 'install-packages)
+
