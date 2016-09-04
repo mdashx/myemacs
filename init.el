@@ -43,3 +43,5 @@
                 (lambda() (interactive) (my-word-wrap)))
 
 (add-hook 'before-save-hook 'gofmt-before-save)
+
+(global-auto-revert-mode)

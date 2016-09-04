@@ -14,6 +14,6 @@ Should all hooks go on in one place, and then their specific actions in a differ
 * Check environment vars to see if in terminal or in OSX
 * Setup different Python modes based on env
 * Setup GUI stuff based on env?
-
-
-
+* Add keybinding for org-store-link
+* Setup bookmarks file to open on start
+* Split window on start so visual-fill-column doesn't crash: https://github.com/joostkremers/visual-fill-column/issues/1#issuecomment-198032933
