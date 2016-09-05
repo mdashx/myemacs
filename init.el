@@ -41,10 +41,10 @@
 ;; Mode-specific customizations
 (require 'my-helm)
 
-;; (require 'my-web-mode)
+(require 'my-web-mode)
 
 ;; Highlight Lines
-;; (add-hook 'web-mode-hook 'hl-line-mode 1)
+(add-hook 'web-mode-hook 'hl-line-mode 1)
 
 (put 'upcase-region 'disabled nil)
 
