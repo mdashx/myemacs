@@ -11,6 +11,7 @@
 (setq helm-display-header-line nil)
 (set-face-attribute 'helm-source-header nil :height 0.9)
 (global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 (define-key helm-map (kbd "TAB") 'helm-execute-persistent-action)
 
 (provide 'my-helm)
