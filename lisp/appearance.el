@@ -22,11 +22,11 @@
 
 (defun set-hl-line-color-based-on-theme ()
   "Sets the hl-line face to have no foregorund and a background
-    that is 10% darker than the default face's background."
+    that is 2% darker than the default face's background."
   (set-face-attribute 'hl-line nil
                       :underline nil
                       :foreground nil
-                      :background (color-darken-name (face-background 'default) 3))
+                      :background (color-darken-name (face-background 'default) 2))
   )
 
 (defun keep-syntax-highlighting ()
