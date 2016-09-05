@@ -51,7 +51,9 @@
 (put 'upcase-region 'disabled nil)
 
 (add-hook 'before-save-hook 'gofmt-before-save)
-;; (global-auto-revert-mode t)
+(global-auto-revert-mode)
+(setq auto-revert-use-notify nil)
+
 ;; (require 'ignore-modification-time)
 
 
