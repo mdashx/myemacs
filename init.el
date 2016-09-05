@@ -45,12 +45,13 @@
 
 ;; Highlight Lines
 ;; (add-hook 'web-mode-hook 'hl-line-mode 1)
-(global-hl-line-mode t)
+;; (global-hl-line-mode) ;; hl color isn't correct when I load global-hl-line-mode at startup
+(global-set-key (kbd "C-c g") 'global-hl-line-mode)
 
 (put 'upcase-region 'disabled nil)
 
 (add-hook 'before-save-hook 'gofmt-before-save)
-(global-auto-revert-mode t)
+;; (global-auto-revert-mode t)
 ;; (require 'ignore-modification-time)
 
 

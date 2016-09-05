@@ -1,5 +1,3 @@
-;; goes in .emac.d/lisp/
-
 (load-theme 'wombat t)
 (powerline-default-theme)
 
