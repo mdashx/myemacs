@@ -9,7 +9,7 @@
   ;;                  sass-mode rainbow-mode scss-mode solarized-theme
   ;;                  volatile-highlights yaml-mode yari zenburn-theme)
   ;; gnupg
-  `(color-theme powerline helm-core helm company web-mode
+  '(color-theme powerline helm-core helm company web-mode
                 yaml-mode nginx-mode markdown-mode)
   "A list of packages to ensure are installed at launch.")
 

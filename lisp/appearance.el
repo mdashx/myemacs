@@ -1,5 +1,3 @@
-;; goes in .emac.d/lisp/
-
 (load-theme 'wombat t)
 (powerline-default-theme)
 
@@ -16,18 +14,17 @@
 ;; thinner border -> │
 ;; thicker border -> ┃
 
-
 ;; http://emacs.stackexchange.com/questions/9740/how-to-define-a-good-highlight-face
 ;; http://stackoverflow.com/questions/17701576/changing-highlight-line-color-in-emacs
 (require'color)
 
 (defun set-hl-line-color-based-on-theme ()
   "Sets the hl-line face to have no foregorund and a background
-    that is 10% darker than the default face's background."
+    that is 2% darker than the default face's background."
   (set-face-attribute 'hl-line nil
                       :underline nil
                       :foreground nil
-                      :background (color-darken-name (face-background 'default) 3))
+                      :background (color-darken-name (face-background 'default) 2))
   )
 
 (defun keep-syntax-highlighting ()
@@ -36,5 +33,8 @@
 
 (add-hook 'hl-line-mode-hook 'set-hl-line-color-based-on-theme)
 (add-hook 'hl-line-mode-hook 'keep-syntax-highlighting)
+
+(add-hook 'global-hl-line-mode-hook 'set-hl-line-color-based-on-theme)
+(add-hook 'global-hl-line-mode-hook 'keep-syntax-highlighting)
 
 (provide 'appearance)

@@ -8,7 +8,13 @@
   (normal-top-level-add-to-load-path '("."))
   (normal-top-level-add-subdirs-to-load-path))
 
-;; Package Archives
+;; Backup Path
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;; Install Packages
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/"))
@@ -27,26 +33,25 @@
 (electric-pair-mode)
 (show-paren-mode)
 
+;; Appearance
+(setq org-src-fontify-natively t) ;;So org-mode will syntax highlight src blocks
+(require 'appearance)
+(show-paren-mode)
+
 ;; Mode-specific customizations
 (require 'my-helm)
+
 (require 'my-web-mode)
 
 ;; Highlight Lines
-(add-hook 'web-mode-hook 'hl-line-mode 1)
+;; (add-hook 'web-mode-hook 'hl-line-mode 1)
+;; (global-hl-line-mode) ;; hl color isn't correct when I load global-hl-line-mode at startup
+(global-set-key (kbd "C-c g") 'global-hl-line-mode)
 
 (put 'upcase-region 'disabled nil)
 
-(defun my-word-wrap ()
-  (visual-line-mode)
-  (visual-fill-column-mode)
-  )
-
-(global-set-key (kbd "C-c 0")
-                (lambda() (interactive) (my-word-wrap)))
-
 (add-hook 'before-save-hook 'gofmt-before-save)
-
-(global-auto-revert-mode t)
+;; (global-auto-revert-mode t)
 ;; (require 'ignore-modification-time)
 
 
