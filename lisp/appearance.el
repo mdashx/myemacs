@@ -16,7 +16,6 @@
 ;; thinner border -> │
 ;; thicker border -> ┃
 
-
 ;; http://emacs.stackexchange.com/questions/9740/how-to-define-a-good-highlight-face
 ;; http://stackoverflow.com/questions/17701576/changing-highlight-line-color-in-emacs
 (require'color)

@@ -8,7 +8,13 @@
   (normal-top-level-add-to-load-path '("."))
   (normal-top-level-add-subdirs-to-load-path))
 
-;; Package Archives
+;; Backup Path
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;; Install Packages
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/"))
@@ -25,6 +31,11 @@
 
 ;; Auto-completion
 (electric-pair-mode)
+(show-paren-mode)
+
+;; Appearance
+(setq org-src-fontify-natively t) ;;So org-mode will syntax highlight src blocks
+(require 'appearance)
 (show-paren-mode)
 
 ;; Mode-specific customizations
