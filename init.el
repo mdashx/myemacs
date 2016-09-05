@@ -29,23 +29,15 @@
 
 ;; Mode-specific customizations
 (require 'my-helm)
-(require 'my-web-mode)
+
+;; (require 'my-web-mode)
 
 ;; Highlight Lines
-(add-hook 'web-mode-hook 'hl-line-mode 1)
+;; (add-hook 'web-mode-hook 'hl-line-mode 1)
 
 (put 'upcase-region 'disabled nil)
 
-(defun my-word-wrap ()
-  (visual-line-mode)
-  (visual-fill-column-mode)
-  )
-
-(global-set-key (kbd "C-c 0")
-                (lambda() (interactive) (my-word-wrap)))
-
 (add-hook 'before-save-hook 'gofmt-before-save)
-
 (global-auto-revert-mode t)
 ;; (require 'ignore-modification-time)
 
