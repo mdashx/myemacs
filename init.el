@@ -44,7 +44,8 @@
 (require 'my-web-mode)
 
 ;; Highlight Lines
-(add-hook 'web-mode-hook 'hl-line-mode 1)
+;; (add-hook 'web-mode-hook 'hl-line-mode 1)
+(global-hl-line-mode t)
 
 (put 'upcase-region 'disabled nil)
 

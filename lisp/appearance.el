@@ -36,4 +36,7 @@
 (add-hook 'hl-line-mode-hook 'set-hl-line-color-based-on-theme)
 (add-hook 'hl-line-mode-hook 'keep-syntax-highlighting)
 
+(add-hook 'global-hl-line-mode-hook 'set-hl-line-color-based-on-theme)
+(add-hook 'global-hl-line-mode-hook 'keep-syntax-highlighting)
+
 (provide 'appearance)
