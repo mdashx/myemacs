@@ -1,7 +1,14 @@
 ;; Startup
 (setq inhibit-startup-message t)
-(menu-bar-mode -1)
+
+;; (if (display-graphic-p)
+;;     (progn
+;;       (tool-bar-mode -1)
+;;       (scroll-bar-mode -1)))
+
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; Load Path
 (let ((default-directory "~/.emacs.d/lisp"))
@@ -57,3 +64,17 @@
 ;; (require 'ignore-modification-time)
 
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

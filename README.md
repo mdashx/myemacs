@@ -1,5 +1,7 @@
 ## TODO:
 
+Upgraded to Emacs 25 on MacOS and the config works fine now on both Linux and Mac.
+
 * Try to figure out what I've added and removed from .emacs that I don't want to miss
 * Automate package installation
 
