@@ -20,3 +20,4 @@ lint.txt
 *.sqlite3
 settings.py
 /static/*
+elpa/

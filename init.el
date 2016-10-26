@@ -48,6 +48,11 @@
 ;; (global-hl-line-mode) ;; hl color isn't correct when I load global-hl-line-mode at startup
 (global-set-key (kbd "C-c g") 'global-hl-line-mode)
 
+;; Company Autocompletion
+(add-hook 'after-init-hook 'global-company-mode)
+(global-set-key (kbd "C-\\") 'company-complete)
+
+
 (put 'upcase-region 'disabled nil)
 
 (add-hook 'before-save-hook 'gofmt-before-save)
@@ -57,3 +62,17 @@
 ;; (require 'ignore-modification-time)
 
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
