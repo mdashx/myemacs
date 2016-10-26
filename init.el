@@ -1,7 +1,14 @@
 ;; Startup
 (setq inhibit-startup-message t)
-(menu-bar-mode -1)
+
+;; (if (display-graphic-p)
+;;     (progn
+;;       (tool-bar-mode -1)
+;;       (scroll-bar-mode -1)))
+
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; Load Path
 (let ((default-directory "~/.emacs.d/lisp"))
