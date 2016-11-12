@@ -33,6 +33,7 @@
 
 (require 'my-packages)
 
+
 ;; Indentation
 (setq-default indent-tabs-mode nil)
 
@@ -49,6 +50,8 @@
 (require 'my-helm)
 
 (require 'my-web-mode)
+
+(require 'my-org)
 
 ;; Highlight Lines
 ;; (add-hook 'web-mode-hook 'hl-line-mode 1)
