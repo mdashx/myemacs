@@ -58,6 +58,11 @@
 ;; (global-hl-line-mode) ;; hl color isn't correct when I load global-hl-line-mode at startup
 (global-set-key (kbd "C-c g") 'global-hl-line-mode)
 
+;; Company Autocompletion
+(add-hook 'after-init-hook 'global-company-mode)
+(global-set-key (kbd "C-\\") 'company-complete)
+
+
 (put 'upcase-region 'disabled nil)
 
 (add-hook 'before-save-hook 'gofmt-before-save)
