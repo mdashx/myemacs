@@ -22,3 +22,4 @@ settings.py
 /static/*
 elpa/
 recentf
+anaconda-mode/

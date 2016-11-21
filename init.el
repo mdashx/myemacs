@@ -53,6 +53,8 @@
 
 (require 'my-org)
 
+(add-hook 'python-mode-hook 'anaconda-mode)
+
 ;; Highlight Lines
 ;; (add-hook 'web-mode-hook 'hl-line-mode 1)
 ;; (global-hl-line-mode) ;; hl color isn't correct when I load global-hl-line-mode at startup

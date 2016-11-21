@@ -10,7 +10,7 @@
   ;;                  volatile-highlights yaml-mode yari zenburn-theme)
   ;; gnupg
   '(color-theme powerline helm-core helm company web-mode
-                yaml-mode nginx-mode markdown-mode)
+                yaml-mode nginx-mode markdown-mode anaconda-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
