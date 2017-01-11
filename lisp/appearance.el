@@ -1,5 +1,19 @@
-(load-theme 'wombat t)
+;; (load-theme 'wombat t)
+(load-theme 'atom-one-dark t)
 (powerline-default-theme)
+
+
+;; https://github.com/jonathanchu/atom-one-dark-theme/issues/6
+;; Customize background for terminal for atom one dark color
+(if (not window-system)
+    (atom-one-dark-with-color-variables
+     (custom-theme-set-faces
+      'atom-one-dark
+      `(default ((t (:background "gray14"))))
+      `(linum ((t (:foreground "#262626" :background "#262626"))))
+      `(hl-line ((t (:background "gray13"))))
+      ))
+  )
 
 ;; http://stackoverflow.com/questions/18210631/how-to-change-the-character-composing-the-emacs-vertical-border
 ;; Reverse colors for the border to have nicer line
@@ -31,10 +45,10 @@
   (interactive)
   (set-face-foreground 'highlight nil))
 
-(add-hook 'hl-line-mode-hook 'set-hl-line-color-based-on-theme)
+;; (add-hook 'hl-line-mode-hook 'set-hl-line-color-based-on-theme)
 (add-hook 'hl-line-mode-hook 'keep-syntax-highlighting)
 
-(add-hook 'global-hl-line-mode-hook 'set-hl-line-color-based-on-theme)
+;; (add-hook 'global-hl-line-mode-hook 'set-hl-line-color-based-on-theme)
 (add-hook 'global-hl-line-mode-hook 'keep-syntax-highlighting)
 
 (provide 'appearance)
