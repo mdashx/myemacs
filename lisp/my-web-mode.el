@@ -22,6 +22,11 @@
   (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
   (add-to-list 'web-mode-indentation-params '("lineup-concats" . t))
   (add-to-list 'web-mode-indentation-params '("lineup-ternary" . nil))
+
+  ;; http://cha1tanya.com/2015/06/20/configuring-web-mode-with-jsx.html
+  ;; Use JSX content for all JavaScript files
+  (if (equal web-mode-content-type "javascript")
+      (web-mode-set-content-type "jsx"))
   )
 
 
