@@ -1,10 +1,11 @@
 ;; Goes in .emacs.d/lisp/
 
 (require 'web-mode)
+
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.jsx" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.json$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 
 (defun my-web-mode-hook ()
@@ -14,9 +15,9 @@
   (setq web-mode-code-indent-offset 2)
   ;; (setq web-mode-enable-engine-detection t)
 
-  (if (equal web-mode-content-type "javascript")
-  (web-mode-set-content-type "jsx")
-  (message "now set to: %s" web-mode-content-type))
+  ;; (if (equal web-mode-content-type "javascript")
+  ;; (web-mode-set-content-type "jsx")
+  ;; (message "now set to: %s" web-mode-content-type))
   
   (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
   (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
@@ -29,15 +30,18 @@
       (web-mode-set-content-type "jsx"))
   )
 
-
-
-
-
-;; If you wan’t to force autoclosing, autopairing even in a terminal, add (setq web-mode-enable-auto-closing t) and (setq web-mode-enable-auto-pairing t) in your .emacs 
+;; If you wan’t to force autoclosing, autopairing even in a terminal,
+;; add (setq web-mode-enable-auto-closing t) and (setq
+;; web-mode-enable-auto-pairing t) in your .emacs
 
 (setq web-mode-enable-auto-closing t)
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+
+(require 'prettier-js)
+(add-hook 'js-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'prettier-before-save)))
 
 (provide 'my-web-mode)
 

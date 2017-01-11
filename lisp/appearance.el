@@ -1,19 +1,36 @@
 ;; (load-theme 'wombat t)
-(load-theme 'atom-one-dark t)
-(powerline-default-theme)
-
 
 ;; https://github.com/jonathanchu/atom-one-dark-theme/issues/6
 ;; Customize background for terminal for atom one dark color
 (if (not window-system)
-    (atom-one-dark-with-color-variables
-     (custom-theme-set-faces
-      'atom-one-dark
-      `(default ((t (:background "gray14"))))
-      `(linum ((t (:foreground "#262626" :background "#262626"))))
-      `(hl-line ((t (:background "gray13"))))
-      ))
+    (defvar atom-one-dark-colors-alist
+      '(("atom-one-dark-accent"   . "#528BFF")
+        ("atom-one-dark-fg"       . "#ABB2BF")
+        ("atom-one-dark-bg"       . "gray14")
+        ("atom-one-dark-bg-1"     . "gray13")
+        ("atom-one-dark-bg-hl"    . "gray13")
+        ("atom-one-dark-gutter"   . "#666D7A")
+        ("atom-one-dark-accent"   . "#AEB9F5")
+        ("atom-one-dark-mono-1"   . "#ABB2BF")
+        ("atom-one-dark-mono-2"   . "#828997")
+        ("atom-one-dark-mono-3"   . "#5C6370")
+        ("atom-one-dark-cyan"     . "#56B6C2")
+        ("atom-one-dark-blue"     . "#61AFEF")
+        ("atom-one-dark-purple"   . "#C678DD")
+        ("atom-one-dark-green"    . "#98C379")
+        ("atom-one-dark-red-1"    . "#E06C75")
+        ("atom-one-dark-red-2"    . "#BE5046")
+        ("atom-one-dark-orange-1" . "#D19A66")
+        ("atom-one-dark-orange-2" . "#E5C07B")
+        ("atom-one-dark-gray"     . "#3E4451")
+        ("atom-one-dark-silver"   . "#AAAAAA")
+        ("atom-one-dark-black"    . "#0F1011"))
+      "List of Atom One Dark colors.")
   )
+
+(load-theme 'atom-one-dark t)
+(powerline-default-theme)
+
 
 ;; http://stackoverflow.com/questions/18210631/how-to-change-the-character-composing-the-emacs-vertical-border
 ;; Reverse colors for the border to have nicer line
