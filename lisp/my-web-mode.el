@@ -3,9 +3,9 @@
 (require 'web-mode)
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.jsx" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.json$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 
 (defun my-web-mode-hook ()
@@ -38,10 +38,10 @@
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
-(require 'prettier-js)
-(add-hook 'js-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'prettier-before-save)))
+;; (require 'prettier-js)
+;; (add-hook 'js-mode-hook
+;;           (lambda ()
+;;             (add-hook 'before-save-hook 'prettier-before-save)))
 
 (provide 'my-web-mode)
 
