@@ -36,6 +36,7 @@
 
 ;; Indentation
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 ;; Auto-completion
 (electric-pair-mode)
@@ -85,7 +86,7 @@
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
    (quote
-    (atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
+    (go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
