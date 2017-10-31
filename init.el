@@ -68,6 +68,7 @@
 
 (put 'upcase-region 'disabled nil)
 
+(setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
 (global-auto-revert-mode)
 (setq auto-revert-use-notify nil)
