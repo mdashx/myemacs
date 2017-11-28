@@ -34,6 +34,10 @@
 (require 'my-packages)
 (require 'go-guru)
 
+;; Global modes
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
+;; ^^ to annoying...
+
 ;; Indentation
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -64,7 +68,7 @@
 ;; Company Autocompletion
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "C-\\") 'company-complete)
-
+(setq company-dabbrev-downcase nil)
 
 (put 'upcase-region 'disabled nil)
 
@@ -87,7 +91,7 @@
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
    (quote
-    (flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
+    (flow-minor-mode flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

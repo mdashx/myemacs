@@ -2,15 +2,6 @@
 
 (require 'web-mode)
 
-
-;; https://github.com/prettier/prettier-emacs
-(require 'prettier-js)
-
-(setq prettier-js-args '(
-  "--trailing-comma" "es5"
-  "--single-quote" "true"
-))
-
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx" . web-mode))
@@ -45,8 +36,26 @@
 
 (setq web-mode-enable-auto-closing t)
 
+;; https://github.com/prettier/prettier-emacs
+(require 'prettier-js)
+
+(setq prettier-js-args '(
+  "--trailing-comma" "es5"
+  "--single-quote" "true"
+))
+
+(require 'flycheck-flow)
+(require 'flow-minor-mode)
+
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 (add-hook 'web-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'flycheck-mode)
+(add-hook 'web-mode-hook 'flow-minor-mode)
+
+(flycheck-add-next-checker 'javascript-flow 'javascript-flow-coverage)
+
+(with-eval-after-load 'company
+  (add-to-list 'company-backends 'company-flow))
 
 ;; (require 'prettier-js)
 ;; (add-hook 'js-mode-hook

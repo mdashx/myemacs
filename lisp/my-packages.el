@@ -9,8 +9,23 @@
   ;;                  sass-mode rainbow-mode scss-mode solarized-theme
   ;;                  volatile-highlights yaml-mode yari zenburn-theme)
   ;; gnupg
-  '(color-theme powerline helm-core helm company web-mode
-                yaml-mode nginx-mode markdown-mode anaconda-mode atom-one-dark-theme)
+  '(
+    color-theme
+    powerline
+    helm-core
+    helm
+    company
+    web-mode
+    yaml-mode
+    nginx-mode
+    markdown-mode
+    anaconda-mode
+    atom-one-dark-theme
+    prettier-js
+    flycheck
+    flycheck-flow
+    flow-minor-mode
+    )
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
