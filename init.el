@@ -32,7 +32,7 @@
 (package-initialize)
 
 (require 'my-packages)
-
+(require 'go-guru)
 
 ;; Indentation
 (setq-default indent-tabs-mode nil)
@@ -87,7 +87,7 @@
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
    (quote
-    (go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
+    (flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
