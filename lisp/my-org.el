@@ -13,4 +13,6 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+
 (provide 'my-org)
