@@ -25,3 +25,5 @@ recentf
 anaconda-mode/
 url/
 eshell/
+session*
+.cask/

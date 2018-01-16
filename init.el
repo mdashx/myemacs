@@ -34,6 +34,21 @@
 (require 'my-packages)
 ;; (require 'go-guru)
 
+(require 'rot47)
+
+(defun rot13-replace-buffer ()
+  (interactive)
+  (let ((oldbuf (current-buffer)))
+    (with-current-buffer (get-buffer-create "*rot-replace*")
+      (erase-buffer)
+      (insert-buffer-substring oldbuf)
+      (let ((bufstr (buffer-string)))
+        (erase-buffer)
+        (insert (rot13 bufstr)))))
+  (erase-buffer)
+  (insert-buffer-substring "*rot-replace*"))
+
+
 ;; Global modes
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 ;; ^^ to annoying...
@@ -72,8 +87,11 @@
 
 (put 'upcase-region 'disabled nil)
 
-(setq gofmt-command "goimports")
-(add-hook 'before-save-hook 'gofmt-before-save)
+;; (setq gofmt-command "goimports")
+
+;; should only add hook in go-mode
+;; (add-hook 'before-save-hook 'gofmt-before-save)
+
 (global-auto-revert-mode)
 (setq auto-revert-use-notify nil)
 
@@ -97,11 +115,11 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("6254372d3ffe543979f21c4a4179cd819b808e5dd0f1787e2a2a647f5759c1d1" default)))
+    ("0be964eabe93f09be5a943679ced8d98e08fe7a92b01bf24478e56eee7b6b21d" "6254372d3ffe543979f21c4a4179cd819b808e5dd0f1787e2a2a647f5759c1d1" default)))
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
    (quote
-    (minesweeper git-gutter magit flow-minor-mode flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
+    (fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flow-minor-mode flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -109,3 +127,4 @@
  ;; If there is more than one, they won't work right.
  )
 
+(put 'downcase-region 'disabled nil)
