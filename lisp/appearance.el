@@ -1,4 +1,4 @@
-;; (load-theme 'wombat t)
+(load-theme 'wombat t)
 
 ;; https://github.com/jonathanchu/atom-one-dark-theme/issues/6
 ;; Customize background for terminal for atom one dark color
@@ -28,7 +28,7 @@
       "List of Atom One Dark colors.")
   )
 
-(load-theme 'atom-one-dark t)
+;; (load-theme 'atom-one-dark t)
 (powerline-default-theme)
 
 

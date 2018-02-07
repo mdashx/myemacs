@@ -32,7 +32,7 @@
 (package-initialize)
 
 (require 'my-packages)
-(require 'go-guru)
+;; (require 'go-guru)
 
 ;; Global modes
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
