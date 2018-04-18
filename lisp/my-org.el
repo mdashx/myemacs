@@ -1,5 +1,5 @@
 (setq org-todo-keywords
-       '((sequence "TODO(t)" "|" "DONE(d)" "CANCELED(c)")))
+      '((sequence "TODO" "|" "DONE" "CANCELED")))
 
 (setq org-agenda-files (list "~/work/notes/calendar.org" "~/work/notes/notes.org" "~/work/notes/work.org"))
 

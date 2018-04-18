@@ -25,3 +25,12 @@ Should all hooks go on in one place, and then their specific actions in a differ
 * Setup bookmarks file to open on start -- msg here
 * ~~Split window on start so visual-fill-column doesn't crash: https://github.com/joostkremers/visual-fill-column/issues/1#issuecomment-198032933~~
 * ~~Global highlight line mode~~ -- msg here
+
+
+## MORE TODOS:
+- Visualize indent levels
+- Fold long YAML (and other format) files, fold blocks in any language
+- Hook up flyspell, auto-fill-mode, etc. for txt, md, and org modes
+- Magit exercises
+- Get Python linting hooked up again
+- Show git/diff gutters

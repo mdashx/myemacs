@@ -119,7 +119,7 @@
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
    (quote
-    (fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flow-minor-mode flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
+    (fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

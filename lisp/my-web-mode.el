@@ -45,12 +45,12 @@
 ))
 
 (require 'flycheck-flow)
-(require 'flow-minor-mode)
+;; (require 'flow-minor-mode)
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 (add-hook 'web-mode-hook 'prettier-js-mode)
 (add-hook 'web-mode-hook 'flycheck-mode)
-(add-hook 'web-mode-hook 'flow-minor-mode)
+;; (add-hook 'web-mode-hook 'flow-minor-mode)
 
 (flycheck-add-next-checker 'javascript-flow 'javascript-flow-coverage)
 
