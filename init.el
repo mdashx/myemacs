@@ -54,6 +54,8 @@
 (global-set-key (kbd "C-\\") 'backward-kill-word)
 
 
+
+
 (require 'rot47)
 
 (defun rot13-replace-buffer ()
@@ -93,7 +95,7 @@
 
 (require 'my-org)
 
-(add-hook 'python-mode-hook 'anaconda-mode)
+;; (add-hook 'python-mode-hook 'anaconda-mode)
 
 ;; Highlight Lines
 ;; (add-hook 'web-mode-hook 'hl-line-mode 1)
@@ -102,10 +104,18 @@
 
 ;; Company Autocompletion
 (add-hook 'after-init-hook 'global-company-mode)
-(global-set-key (kbd "C-\\") 'company-complete)
+;; (global-set-key (kbd "C-\\") 'company-complete) - just use M-C-i
 (setq company-dabbrev-downcase nil)
-
 (put 'upcase-region 'disabled nil)
+
+(require 'company)
+
+(define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
+(define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
+
+;; https://github.com/jorgenschaefer/elpy/issues/1084
+;; Elpy doesn't work with Ivy
+(elpy-enable)
 
 ;; (setq gofmt-command "goimports")
 

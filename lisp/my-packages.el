@@ -19,7 +19,8 @@
     yaml-mode
     nginx-mode
     markdown-mode
-    anaconda-mode
+    ;; anaconda-mode
+    elpy
     counsel
     ivy
     swiper
