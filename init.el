@@ -130,11 +130,30 @@
 ;; Elpy doesn't work with Ivy
 (elpy-enable)
 
-(defun myemacs-format-python-on-save ()
-  "Format Python code before file is saved."
-  (add-hook 'before-save-hook 'elpy-format-code))
 
-(add-hook 'python-mode-hook 'myemacs-format-python-on-save)
+
+;; --------- HOW TO FORMAT ON SAVE----------
+;;
+;; For PrettierJS, it's done by creating a minor mode that adds the
+;; before save hook when the minor mode is active, and removes the
+;; hook when it's not active. That's what I should do.
+
+;; (require 'python)
+
+;; (defun myemacs-python-hooks ()
+;;   "Format Python code before saving and check syntax after saving."
+;;   (if 'python-mode
+;;       (message "saving a python file...")
+;;     ))
+  
+	;;  (add-hook 'before-save-hook 'elpy-check))
+
+
+;; (add-hook 'before-save-hook 'myemacs-python-hooks)
+
+
+
+
 
 ;; should only add hook in go-mode
 ;; (add-hook 'before-save-hook 'gofmt-before-save)
