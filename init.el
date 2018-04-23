@@ -10,6 +10,12 @@
 (if (functionp 'scroll-bar-mode) (scroll-bar-mode -1))
 (menu-bar-mode -1)
 
+;; On mac
+(when (eq system-type 'darwin)
+  (setq ns-pop-up-frames nil)
+  (setq mac-command-modifier 'control))
+
+
 ;; Load Path
 (let ((default-directory "~/.emacs.d/lisp"))
   (normal-top-level-add-to-load-path '("."))
@@ -30,6 +36,8 @@
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
+
+
 
 (require 'my-packages)
 ;; (require 'go-guru)
