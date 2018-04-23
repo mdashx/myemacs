@@ -12,18 +12,20 @@
   '(
     color-theme
     powerline
-    helm-core
-    helm
+    ;; helm-core
+    ;; helm
     company
     web-mode
     yaml-mode
     nginx-mode
     markdown-mode
     anaconda-mode
-    atom-one-dark-theme
+    counsel
+    ivy
+    swiper
     prettier-js
     flycheck
-    flycheck-flow
+    ;; flycheck-flow
     flow-minor-mode
     )
   "A list of packages to ensure are installed at launch.")
