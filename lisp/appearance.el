@@ -1,4 +1,5 @@
 (load-theme 'wombat t)
+;; (load-theme 'noctilux t)
 
 ;; https://github.com/jonathanchu/atom-one-dark-theme/issues/6
 ;; Customize background for terminal for atom one dark color
