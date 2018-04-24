@@ -76,7 +76,6 @@ _SPC_ cancel
            ("f" . hydra-folding/body))
 
 
-(bind-key "C-i" 'complete-symbol)
 
 ;; Todo - create Hydra for navigating parenthesis
 
