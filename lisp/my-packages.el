@@ -14,7 +14,9 @@
     powerline
     ;; helm-core
     ;; helm
+    bind-key
     company
+    hydra
     web-mode
     yaml-mode
     nginx-mode

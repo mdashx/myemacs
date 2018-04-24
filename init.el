@@ -39,12 +39,53 @@
 (require 'my-packages)
 ;; (require 'go-guru)
 
+(global-flycheck-mode)
+
+
+
+
+
+;; https://github.com/abo-abo/hydra/wiki/Emacs#hideshow-mode-for-code-folding
+(defhydra hydra-folding ()
+   "
+Hide^^            ^Show^            ^Toggle^    ^Navigation^
+----------------------------------------------------------------
+_h_ hide all      _s_ show all      _t_oggle    _n_ext line
+_d_ hide block    _a_ show block              _p_revious line
+_l_ hide level
+
+_SPC_ cancel
+"
+   ("s" hs-show-all)
+   ("h" hs-hide-all)
+   ("a" hs-show-block)
+   ("d" hs-hide-block)
+   ("t" hs-toggle-hiding)
+   ("l" hs-hide-level)
+   ("n" forward-line)
+   ("p" (forward-line -1))
+   ("SPC" nil)
+)
+
+(global-unset-key "\C-j")
+
+(require 'bind-key)
+
+(bind-keys* :prefix-map my-prefix-map
+           :prefix "C-j"
+           ("f" . hydra-folding/body))
+
+
+;; Todo - create Hydra for navigating parenthesis
+
+
 ;; https://oremacs.com/swiper/#getting-started
 (ivy-mode)
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
 
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'hs-minor-mode)
 
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -161,7 +202,7 @@
    '("0be964eabe93f09be5a943679ced8d98e08fe7a92b01bf24478e56eee7b6b21d" "6254372d3ffe543979f21c4a4179cd819b808e5dd0f1787e2a2a647f5759c1d1" default))
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
-   '(key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
+   '(bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
