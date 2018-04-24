@@ -20,6 +20,7 @@
     nginx-mode
     markdown-mode
     ;; anaconda-mode
+    which-key
     elpy
     counsel
     ivy
