@@ -32,6 +32,7 @@
     ;; flycheck-flow
     flow-minor-mode
     rainbow-delimiters
+    rainbow-mode
     )
   "A list of packages to ensure are installed at launch.")
 

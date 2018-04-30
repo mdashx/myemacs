@@ -1,6 +1,12 @@
 ;; Startup
 (setq inhibit-startup-message t)
 
+;; https://www.emacswiki.org/emacs/DiredReuseDirectoryBuffer
+;; Elisp fn to replace " with '
+;; elisp fn to kill all buffers except messages and scratch
+;; shortcut key to open init file
+
+
 ;; (if (display-graphic-p)
 ;;     (progn
 ;;       (tool-bar-mode -1)
@@ -72,10 +78,12 @@ _SPC_ cancel
 (require 'bind-key)
 
 (bind-keys* :prefix-map my-prefix-map
-           :prefix "C-j"
-           ("f" . hydra-folding/body))
+            :prefix "C-j"
+            ("s" . avy-goto-char)
+            ("f" . hydra-folding/body))
 
 
+(bind-key* "C-M-\\" 'indent-rigidly-right)
 
 ;; Todo - create Hydra for navigating parenthesis
 
@@ -172,7 +180,6 @@ _SPC_ cancel
 (elpy-enable)
 
 (require 'pysave-mode)
-
 (add-hook 'python-mode-hook 'pysave-mode)
 
 ;; should only add hook in go-mode
@@ -190,7 +197,8 @@ _SPC_ cancel
 ;; going to be adding my own ROT47 function anyway.
 (define-prefix-command 'toms-map)
 (define-key toms-map (kbd "e") 'toggle-rot13-mode)
-(global-set-key (kbd "C-q") toms-map)
+
+;; (global-set-key (kbd "C-q") toms-map)
 
 
 
@@ -203,7 +211,7 @@ _SPC_ cancel
    '("0be964eabe93f09be5a943679ced8d98e08fe7a92b01bf24478e56eee7b6b21d" "6254372d3ffe543979f21c4a4179cd819b808e5dd0f1787e2a2a647f5759c1d1" default))
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
-   '(bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
+   '(lispy paredit projectile golden-ratio treemacs bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -216,3 +224,7 @@ _SPC_ cancel
  '(company-tooltip-selection ((t (:inherit font-lock-function-name-face)))))
 
 (put 'downcase-region 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
+
+
+
