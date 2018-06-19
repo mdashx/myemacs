@@ -85,6 +85,8 @@ _SPC_ cancel
 
 (bind-key* "C-M-\\" 'indent-rigidly-right)
 
+(bind-key* "C-x i" 'avy-goto-line)
+
 ;; Todo - create Hydra for navigating parenthesis
 
 
@@ -179,8 +181,10 @@ _SPC_ cancel
 ;; Elpy doesn't work with Ivy
 (elpy-enable)
 
-(require 'pysave-mode)
-(add-hook 'python-mode-hook 'pysave-mode)
+;; (require 'pysave-mode)
+;; (add-hook 'python-mode-hook 'pysave-mode)
+
+(add-hook 'python-mode-hook 'blacken-mode)
 
 ;; should only add hook in go-mode
 ;; (add-hook 'before-save-hook 'gofmt-before-save)
@@ -211,7 +215,7 @@ _SPC_ cancel
    '("0be964eabe93f09be5a943679ced8d98e08fe7a92b01bf24478e56eee7b6b21d" "6254372d3ffe543979f21c4a4179cd819b808e5dd0f1787e2a2a647f5759c1d1" default))
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
-   '(lispy paredit projectile golden-ratio treemacs bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
+   '(blacken vlf lispy paredit projectile golden-ratio treemacs bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

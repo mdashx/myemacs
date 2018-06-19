@@ -10,6 +10,7 @@
   ;;                  volatile-highlights yaml-mode yari zenburn-theme)
   ;; gnupg
   '(
+    blacken
     color-theme
     powerline
     ;; helm-core
