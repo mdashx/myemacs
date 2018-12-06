@@ -27,3 +27,6 @@ url/
 eshell/
 session*
 .cask/
+games/
+network-security.data
+projectile-bookmarks.eld

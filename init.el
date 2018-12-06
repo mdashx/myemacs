@@ -79,7 +79,8 @@ _SPC_ cancel
 
 (bind-keys* :prefix-map my-prefix-map
             :prefix "C-j"
-            ("s" . avy-goto-char)
+            ("j" . avy-goto-char)
+            ("s" . swiper)
             ("f" . hydra-folding/body))
 
 
@@ -98,7 +99,8 @@ _SPC_ cancel
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 
-(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-s") 'search-forward)
+;; (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
