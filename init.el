@@ -40,7 +40,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(package-initialize)
+;; (package-initialize)
 
 (require 'my-packages)
 ;; (require 'go-guru)
@@ -204,6 +204,16 @@ _SPC_ cancel
 
 ;; (global-set-key (kbd "C-q") toms-map)
 
+
+(defun csv-to-strings ()
+  "One way to add quotes to CSV items."
+  (interactive)
+  (search-forward ",")
+  (backward-char 1)
+  (insert "'")
+  (forward-char 1)
+  (insert "'")
+  )
 
 
 (custom-set-variables

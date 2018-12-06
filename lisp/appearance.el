@@ -69,6 +69,6 @@
 ;; (add-hook 'global-hl-line-mode-hook 'set-hl-line-color-based-on-theme)
 (add-hook 'global-hl-line-mode-hook 'keep-syntax-highlighting)
 
-(set-default-font "Ubuntu Mono:pixelsize=16")
+;; (set-default-font "Ubuntu Mono:pixelsize=16")
 
 (provide 'appearance)
