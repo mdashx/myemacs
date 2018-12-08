@@ -44,7 +44,7 @@
   "--single-quote" "true"
 ))
 
-(require 'flycheck-flow)
+;; (require 'flycheck-flow)
 ;; (require 'flow-minor-mode)
 
 (defun enable-minor-mode (my-pair)
@@ -63,10 +63,10 @@
 (add-hook 'web-mode-hook 'flycheck-mode)
 ;; (add-hook 'web-mode-hook 'flow-minor-mode)
 
-(flycheck-add-next-checker 'javascript-flow 'javascript-flow-coverage)
+;; (flycheck-add-next-checker 'javascript-flow 'javascript-flow-coverage)
 
-(with-eval-after-load 'company
-  (add-to-list 'company-backends 'company-flow))
+;;(with-eval-after-load 'company
+;;  (add-to-list 'company-backends 'company-flow))
 
 ;; (require 'prettier-js)
 ;; (add-hook 'js-mode-hook

@@ -17,9 +17,9 @@
 (menu-bar-mode -1)
 
 ;; On mac
-(when (eq system-type 'darwin)
-  (setq ns-pop-up-frames nil)
-  (setq mac-command-modifier 'control))
+;; (when (eq system-type 'darwin)
+;;   (setq ns-pop-up-frames nil)
+;;   (setq mac-command-modifier 'control))
 
 ;; Load Path
 (let ((default-directory "~/.emacs.d/lisp"))
@@ -32,6 +32,8 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+;; (package-initialize)
+
 ;; Install Packages
 (require 'package)
 (add-to-list 'package-archives
@@ -40,7 +42,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-;; (package-initialize)
+
 
 (require 'my-packages)
 ;; (require 'go-guru)
