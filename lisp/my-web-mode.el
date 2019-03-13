@@ -7,6 +7,7 @@
 (add-to-list 'auto-mode-alist '("\\.jsx" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode))
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
