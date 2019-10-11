@@ -83,6 +83,7 @@ _SPC_ cancel
             :prefix "C-j"
             ("j" . avy-goto-char)
             ("s" . swiper)
+            ("l" . markdown-follow-link-at-point)
             ("f" . hydra-folding/body))
 
 
