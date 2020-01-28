@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("2019-11-06.md"
+ (filename . "/mnt/c/Users/Tom/Sync/home/zk/log/2019-11-06.md")
+ (front-context-string . "- Created some n")
+ (rear-context-string)
+ (position . 1))
+("2019-11-05.md"
+ (filename . "/mnt/c/Users/Tom/Sync/home/zk/log/2019-11-05.md")
+ (front-context-string . "- Added \"visible")
+ (rear-context-string)
+ (position . 1))
+)

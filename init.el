@@ -1,6 +1,20 @@
 ;; Startup
 (setq inhibit-startup-message t)
 
+;; TODO
+;; function interleave lines
+;; Example...
+;; Pair up these lines
+;; /float-control-valves/no-51/
+;; /float-control-valves/no-52/
+;; /float-control-valves/no-53/
+;; /float-control-valves/no-59/
+;; No. 51 Water-Boy Float Control Valve
+;; No. 52 Water-Boy Float Control Valve
+;; No. 53 Water-Boy Float Control Valve
+;; No. 59 Water-Boy Float Control Valve
+
+
 ;; https://www.emacswiki.org/emacs/DiredReuseDirectoryBuffer
 ;; Elisp fn to replace " with '
 ;; elisp fn to kill all buffers except messages and scratch
@@ -27,10 +41,18 @@
   (normal-top-level-add-subdirs-to-load-path))
 
 ;; Backup Path
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+
+(setq make-backup-files nil)
+(setq create-lockfiles nil)
+(setq auto-save-default nil)
+
+;; (setq backup-directory-alist
+;;       `((".*" . ,temporary-file-directory)))
+;; (setq auto-save-file-name-transforms
+;;       `((".*" ,temporary-file-directory t)))
+
+;; (setq backup-directory-alist
+;;           `(("." . ,"$HOME/.emacs-backups")))
 
 ;; (package-initialize)
 
@@ -220,12 +242,25 @@ _SPC_ cancel
   (insert "'")
   )
 
+;; https://www.emacswiki.org/emacs/DosToUnix
+(defun dos2unix (buffer)
+  "Automate M-% C-q C-m RET C-q C-j RET"
+  (interactive "*b")
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward (string ?\C-m) nil t)
+      ;; (replace-match (string ?\C-j) nil t))))
+      (replace-match "" nil t))))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-save-default nil)
+ '(auto-save-interval 0)
+ '(auto-save-timeout 86400)
  '(custom-safe-themes
    '("0be964eabe93f09be5a943679ced8d98e08fe7a92b01bf24478e56eee7b6b21d" "6254372d3ffe543979f21c4a4179cd819b808e5dd0f1787e2a2a647f5759c1d1" default))
  '(fci-rule-color "#3E4451")

@@ -1,3 +1,8 @@
+
+
+
+;;; Code:
+
 (defun rot47-create-leading-chars ()
   "Return a string of ASCII chars 0-31"
   (let ((str (make-string 32 0))
