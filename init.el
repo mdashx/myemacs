@@ -56,6 +56,17 @@
 
 ;; (package-initialize)
 
+(add-hook 'markdown-mode 'turn-on-auto-fill)
+
+(defun tch-join-lines ()
+  "Re-join autofilled lines"
+  (interactive)
+  (set-fill-column 2000)
+  (mark-whole-buffer)
+  (fill-paragraph)
+  ;; (set-fill-column 70)
+  )
+
 ;; Install Packages
 (require 'package)
 (add-to-list 'package-archives
@@ -69,7 +80,20 @@
 (require 'my-packages)
 ;; (require 'go-guru)
 
+(require 'clang-format)
+(global-set-key (kbd "C-c i") 'clang-format-region)
+(global-set-key (kbd "C-c u") 'clang-format-buffer)
+
+;; (setq clang-format-style-option "llvm")
+
+(defun clang-format-on-save ()
+  "Format C cod on save."
+  (add-hook 'before-save-hook 'clang-format-buffer nil 'local))
+
+(add-hook 'c-mode-hook 'clang-format-on-save)
+
 (global-flycheck-mode)
+
 
 
 
@@ -148,6 +172,9 @@ _SPC_ cancel
         (insert (rot13 bufstr)))))
   (erase-buffer)
   (insert-buffer-substring "*rot-replace*"))
+
+
+(global-set-key (kbd "C-c r") 'rot47-replace-buffer)
 
 
 ;; Global modes
@@ -253,6 +280,16 @@ _SPC_ cancel
       (replace-match "" nil t))))
 
 
+;; https://superuser.com/questions/603421/how-to-remove-smart-quotes-in-copy-pasteg
+(defun replace-smart-quotes (beg end)
+  "Replace 'smart quotes' in buffer or region with ascii quotes."
+  (interactive "r")
+  (format-replace-strings '(("\x201C" . "\"")
+                            ("\x201D" . "\"")
+                            ("\x2018" . "'")
+                            ("\x2019" . "'"))
+                          nil beg end))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -265,7 +302,7 @@ _SPC_ cancel
    '("0be964eabe93f09be5a943679ced8d98e08fe7a92b01bf24478e56eee7b6b21d" "6254372d3ffe543979f21c4a4179cd819b808e5dd0f1787e2a2a647f5759c1d1" default))
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
-   '(blacken vlf lispy paredit projectile golden-ratio treemacs bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
+   '(clang-format elm-mode blacken vlf lispy paredit projectile golden-ratio treemacs bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
