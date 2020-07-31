@@ -140,6 +140,8 @@ _SPC_ cancel
 ;; Todo - create Hydra for navigating parenthesis
 
 
+(global-unset-key "\C-z") ;; Because I hate accidentally suspending Emacs
+
 ;; https://oremacs.com/swiper/#getting-started
 (ivy-mode)
 (setq ivy-use-virtual-buffers t)
