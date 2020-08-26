@@ -1,3 +1,4 @@
+
 ;; Startup
 (setq inhibit-startup-message t)
 
@@ -13,7 +14,6 @@
 ;; No. 52 Water-Boy Float Control Valve
 ;; No. 53 Water-Boy Float Control Valve
 ;; No. 59 Water-Boy Float Control Valve
-
 
 ;; https://www.emacswiki.org/emacs/DiredReuseDirectoryBuffer
 ;; Elisp fn to replace " with '
@@ -58,6 +58,15 @@
 
 (add-hook 'markdown-mode 'turn-on-auto-fill)
 
+;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph    
+    (defun unfill-paragraph (&optional region)
+      "Takes a multi-line paragraph and makes it into a single line of text."
+      (interactive (progn (barf-if-buffer-read-only) '(t)))
+      (let ((fill-column (point-max))
+            ;; This would override `fill-column' if it's an integer.
+            (emacs-lisp-docstring-fill-column t))
+        (fill-paragraph nil region)))
+
 (defun tch-join-lines ()
   "Re-join autofilled lines"
   (interactive)
@@ -70,10 +79,7 @@
 ;; Install Packages
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/"))
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
-
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 
@@ -242,6 +248,9 @@ _SPC_ cancel
 
 (add-hook 'python-mode-hook 'blacken-mode)
 
+(add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+
 ;; should only add hook in go-mode
 ;; (add-hook 'before-save-hook 'gofmt-before-save)
 
@@ -292,6 +301,10 @@ _SPC_ cancel
                             ("\x2019" . "'"))
                           nil beg end))
 
+(require 'yasnippet)
+(yas-global-mode 1)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -304,7 +317,7 @@ _SPC_ cancel
    '("0be964eabe93f09be5a943679ced8d98e08fe7a92b01bf24478e56eee7b6b21d" "6254372d3ffe543979f21c4a4179cd819b808e5dd0f1787e2a2a647f5759c1d1" default))
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
-   '(clang-format elm-mode blacken vlf lispy paredit projectile golden-ratio treemacs bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
+   '(visual-fill-column clang-format elm-mode blacken vlf lispy paredit projectile golden-ratio treemacs bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: tch-code
+# key : cc
+# binding: C-c `
+# --
+
+\code{$0}

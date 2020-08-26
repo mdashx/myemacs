@@ -36,6 +36,8 @@
     flow-minor-mode
     rainbow-delimiters
     rainbow-mode
+    yasnippet
+    yasnippet-snippets
     )
   "A list of packages to ensure are installed at launch.")
 

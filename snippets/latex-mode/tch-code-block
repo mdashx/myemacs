@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: tch-code-block
+# key: cb
+# --
+
+\begin{minted}[]{$1}
+
+$2
+
+\end{minted}
+
+$0
+
+
+

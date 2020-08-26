@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: tch-img
+# key: img
+# --
+
+\tchimg[$1]{$2}
+
+$0
