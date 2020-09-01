@@ -250,6 +250,7 @@ _SPC_ cancel
 
 (add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
+(add-hook 'tex-mode-hook 'turn-on-auto-fill)
 
 ;; should only add hook in go-mode
 ;; (add-hook 'before-save-hook 'gofmt-before-save)
