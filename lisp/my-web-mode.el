@@ -9,6 +9,13 @@
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue?\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.vue?\\'" . vue-mode))
+
+(defvar mmm-submode-decoration-level 0)
+(defvar js-indent-level 2)
+
+
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
@@ -26,6 +33,7 @@
   (add-to-list 'web-mode-indentation-params '("lineup-concats" . t))
   (add-to-list 'web-mode-indentation-params '("lineup-ternary" . nil))
 
+  (setq web-mode-script-padding 0)
   ;; http://cha1tanya.com/2015/06/20/configuring-web-mode-with-jsx.html
   ;; Use JSX content for all JavaScript files
   (if (equal web-mode-content-type "javascript")
@@ -43,11 +51,13 @@
 
 (setq prettier-js-args '(
   "--trailing-comma" "es5"
-  "--single-quote" "true"
+  "--single-quote" "false"
 ))
 
 ;; (require 'flycheck-flow)
 ;; (require 'flow-minor-mode)
+
+(setq flycheck-javascript-eslint-executable "eslint_d")
 
 (defun enable-minor-mode (my-pair)
   "Enable minor mode if filename match the regexp.  MY-PAIR is a cons cell (regexp . minor-mode)."
@@ -60,6 +70,10 @@
 (add-hook 'web-mode-hook #'(lambda ()
                             (enable-minor-mode
                              '("\\.jsx?\\'" . prettier-js-mode))))
+
+(add-hook 'web-mode-hook #'(lambda ()
+                            (enable-minor-mode
+                             '("\\.vue?\\'" . prettier-js-mode))))
 
 
 (add-hook 'web-mode-hook 'flycheck-mode)

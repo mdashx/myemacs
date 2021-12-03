@@ -38,6 +38,8 @@
     rainbow-mode
     yasnippet
     yasnippet-snippets
+    haskell-mode
+    dante
     )
   "A list of packages to ensure are installed at launch.")
 

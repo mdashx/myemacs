@@ -137,6 +137,7 @@ _SPC_ cancel
             ("j" . avy-goto-char)
             ("s" . swiper)
             ("l" . markdown-follow-link-at-point)
+            ("n" . display-line-numbers-mode)
             ("f" . hydra-folding/body))
 
 
@@ -242,7 +243,7 @@ _SPC_ cancel
 
 ;; https://github.com/jorgenschaefer/elpy/issues/1084
 ;; Elpy doesn't work with Ivy
-(elpy-enable)
+;; (elpy-enable)
 
 ;; (require 'pysave-mode)
 ;; (add-hook 'python-mode-hook 'pysave-mode)
@@ -306,6 +307,10 @@ _SPC_ cancel
 (require 'yasnippet)
 (yas-global-mode 1)
 
+(setq scss-compile-at-save nil)
+
+(add-hook 'haskell-mode-hook 'flycheck-mode)
+(add-hook 'haskell-mode-hook 'dante-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -319,7 +324,7 @@ _SPC_ cancel
    '("0be964eabe93f09be5a943679ced8d98e08fe7a92b01bf24478e56eee7b6b21d" "6254372d3ffe543979f21c4a4179cd819b808e5dd0f1787e2a2a647f5759c1d1" default))
  '(fci-rule-color "#3E4451")
  '(package-selected-packages
-   '(visual-fill-column clang-format elm-mode blacken vlf lispy paredit projectile golden-ratio treemacs bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
+   '(haskell-mode sass-mode scss-mode ledger-mode vue-mode visual-fill-column clang-format elm-mode blacken vlf lispy paredit projectile golden-ratio treemacs bind-key hydra avy key-seq key-chord which-key evil-tutor evil rainbow-delimiters rainbow-mode noctilux-theme fireplace package-build shut-up epl git commander f dash s cask cask-mode yasnippet yasnippet-snippets minesweeper git-gutter magit flycheck flycheck-flow prettier-js lua-mode go-guru go-mode atom-dark-theme atom-one-dark-theme traad markdown-mode nginx-mode yaml-mode web-mode company helm helm-core powerline color-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

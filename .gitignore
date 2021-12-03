@@ -21,6 +21,7 @@ lint.txt
 settings.py
 /static/*
 elpa/
+elpy/
 recentf
 anaconda-mode/
 url/
