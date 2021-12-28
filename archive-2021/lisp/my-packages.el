@@ -13,7 +13,8 @@
   '(
     blacken
     clang-format
-    color-theme
+    ;;    color-theme
+    color-theme-modern
     powerline
     ;; helm-core
     ;; helm
