@@ -246,6 +246,7 @@ _SPC_ cancel
 ;; (setq web-mode-enable-auto-closing t)
 
 (require 'prettier-js)
+(add-hook 'web-mode-hook 'prettier-js-mode)
 
 ;; (setq prettier-js-args '(
 ;;   "--trailing-comma" "es5"
@@ -260,18 +261,3 @@ _SPC_ cancel
 
 (setq plantuml-jar-path "/home/tom/bin/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(plantuml-mode prettier-js yasnippet which-key web-mode use-package rainbow-delimiters pyvenv python-isort pyenv-mode projectile powerline lsp-jedi hydra highlight-indentation flycheck diff-hl counsel company-anaconda blacken avy)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-(put 'upcase-region 'disabled nil)
