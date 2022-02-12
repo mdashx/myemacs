@@ -238,10 +238,19 @@ _SPC_ cancel
 (add-to-list 'web-mode-indentation-params '("lineup-ternary" . nil))
 
 ;; (setq web-mode-script-padding 0)
-;; ;; http://cha1tanya.com/2015/06/20/configuring-web-mode-with-jsx.html
-;; ;; Use JSX content for all JavaScript files
+
+;; https://emacs.stackexchange.com/a/47415
+;; http://cha1tanya.com/2015/06/20/configuring-web-mode-with-jsx.html
+;; Use JSX content for all JavaScript files
 ;; (if (equal web-mode-content-type "javascript")
 ;;     (web-mode-set-content-type "jsx"))
+
+(add-hook 'web-mode-hook
+          (lambda ()
+            ;; short circuit js mode and just do everything in jsx-mode
+            (if (equal web-mode-content-type "javascript")
+                (web-mode-set-content-type "jsx")
+              (message "now set to: %s" web-mode-content-type))))
 
 ;; (setq web-mode-enable-auto-closing t)
 
