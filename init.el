@@ -256,7 +256,10 @@ _SPC_ cancel
 ;; Other modes
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
-(setq plantuml-default-exec-mode 'executable)
+;;(setq plantuml-default-exec-mode 'executable)
+
+(setq plantuml-jar-path "/home/tom/bin/plantuml.jar")
+(setq plantuml-default-exec-mode 'jar)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
