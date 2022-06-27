@@ -55,13 +55,21 @@
 
 (load-theme 'wombat t)
 (powerline-default-theme)
-(set-face-attribute 'default nil :font "Inconsolata-16")
-;; (set-face-attribute 'default nil :font "Inconsolata-12")
+
+;; Open Magnifier with Win key + "+" key, Ctrl + Alt + L for "lens"
+;; mode, Win + esc to close
+;; (set-face-attribute 'default nil :font "Inconsolata-16")
+(set-face-attribute 'default nil :font "Inconsolata-12")
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Usability
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Auto-revert
+
+(global-auto-revert-mode)
 
 ;; I hate the annoying backup files...
 (setq make-backup-files nil)
@@ -112,6 +120,9 @@
 
 
 ;; My keybindings
+
+(with-eval-after-load 'org
+  (define-key org-mode-map [(control j)] nil))
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
@@ -195,6 +206,13 @@ _SPC_ cancel
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Org-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq org-icalendar-timezone "America/Costa_Rica")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Python
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -264,9 +282,36 @@ _SPC_ cancel
 
 
 ;; Other modes
-(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
-(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . text-mode))
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . text-mode))
+
 ;;(setq plantuml-default-exec-mode 'executable)
 
 (setq plantuml-jar-path "/home/tom/bin/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
+
+
+;; (require 'org)
+;; (define-key org-mode-map (kbd "<C-j>") nil)
+
+;; (with-eval-after-load 'org
+;;   (define-key org-mode-map "<C-j>" nil))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files '("~/notes/"))
+ '(package-selected-packages
+   '(ttl-mode yasnippet which-key web-mode use-package rainbow-delimiters pyvenv python-isort pyenv-mode projectile prettier-js powerline plantuml-mode lsp-jedi hydra highlight-indentation flycheck diff-hl counsel company-anaconda blacken avy)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(put 'upcase-region 'disabled nil)
