@@ -23,6 +23,7 @@
     python-isort
     rainbow-delimiters
     use-package
+    visual-fill-column
     web-mode
     which-key
     )
@@ -60,6 +61,8 @@
 ;; mode, Win + esc to close
 ;; (set-face-attribute 'default nil :font "Inconsolata-16")
 (set-face-attribute 'default nil :font "Inconsolata-12")
+
+
 
 
 
@@ -208,10 +211,15 @@ _SPC_ cancel
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Org-mode
+;; Org-mode / text-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(setq org-agenda-files '("~/notes"))
 (setq org-icalendar-timezone "America/Costa_Rica")
+
+(add-hook 'text-mode-hook (lambda() (visual-line-mode 1)))
+(add-hook 'org-mode-hook (lambda() (visual-line-mode 1)))
+(add-hook 'visual-line-mode-hook 'visual-fill-column-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Python
@@ -305,7 +313,7 @@ _SPC_ cancel
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files '("~/notes/"))
+ '(org-agenda-files '("~/notes/") t)
  '(package-selected-packages
    '(ttl-mode yasnippet which-key web-mode use-package rainbow-delimiters pyvenv python-isort pyenv-mode projectile prettier-js powerline plantuml-mode lsp-jedi hydra highlight-indentation flycheck diff-hl counsel company-anaconda blacken avy)))
 (custom-set-faces
