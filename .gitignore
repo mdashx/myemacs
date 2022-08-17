@@ -1,3 +1,4 @@
+
 \#*
 \.#*
 *.*~
@@ -31,3 +32,7 @@ session*
 games/
 network-security.data
 projectile-bookmarks.eld
+.cache
+.lsp*
+recentf
+projects

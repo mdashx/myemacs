@@ -12,14 +12,12 @@
     company
     counsel ;; this also installs ivy and swiper as dependencies
     diff-hl
+    eglot
     flycheck
     hydra
-    lsp-jedi
-    lsp-mode
     plantuml-mode
     powerline
     prettier-js
-    projectile
     python-isort
     rainbow-delimiters
     use-package
@@ -109,12 +107,12 @@
 ;; Programming modes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'lsp-mode)
+;; (require 'lsp-mode)
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (electric-pair-mode)
 (show-paren-mode)
-(projectile-mode 1)
+;; (projectile-mode 1)
 (global-flycheck-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -127,10 +125,12 @@
 (with-eval-after-load 'org
   (define-key org-mode-map [(control j)] nil))
 
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (defhydra hydra-folding ()
   "
+
+
 Hide^^            ^Show^            ^Toggle^    ^Navigation^
 ----------------------------------------------------------------
 _h_ hide all      _s_ show all      _t_oggle    _n_ext line
@@ -157,6 +157,27 @@ _SPC_ cancel
    ("d" (global-hl-line-mode -1))
   )
 
+;; (defhydra hydra-org-links ()
+;;   "
+;; Org links
+;; ----------
+;; _s_ store   
+
+;; "
+;;   ("s" (org-store-link 1))
+;;   )
+
+;; I would like a function to store a link, with search string, then
+;; open an org file where I'm storing links and auto insert the link
+;; with the search string or whole link, as the link name.
+
+;; https://orgmode.org/manual/Handling-Links.html
+
+;; If some text is selected when link is created, that will become the
+;; default description. Even better: if I just hit Return, it will use
+;; the naked link, which is what I want
+
+
 (defhydra hydra-base (global-map "C-j")
   "
 Options^^
@@ -170,8 +191,11 @@ _SPC_ cancel
   ("j" avy-goto-char :exit t)
   ("n" hydra-show-lines/body :exit t)
   ("s" swiper :exit t)
+  ("l" org-store-link :exit t)
   ("SPC" nil)
   )
+
+
 
 (global-display-line-numbers-mode)
 
@@ -227,14 +251,34 @@ _SPC_ cancel
 
 ;; (add-hook 'python-mode-hook 'blacken-mode)
 ;; (add-hook 'python-mode-hook 'python-isort-on-save-mode)
-(add-hook 'python-mode-hook 'lsp)
+;; (add-hook 'python-mode-hook 'lsp)
 
-(use-package lsp-jedi
-  :ensure t
-  :config
-  (with-eval-after-load "lsp-mode"
-    (add-to-list 'lsp-disabled-clients 'pyls)
-    (add-to-list 'lsp-enabled-clients 'jedi)))
+;; (use-package lsp-jedi
+;;   :ensure t
+;;   :config
+;;   (with-eval-after-load "lsp-mode"
+;;     (add-to-list 'lsp-enabled-clients 'omnisharp)
+;;     (add-to-list 'lsp-disabled-clients 'pyls)
+;;     (add-to-list 'lsp-enabled-clients 'jedi)))
+
+;; (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-mode))
+
+
+;; If I want eglot auto-running for csharp files
+(require 'eglot)
+;; (add-hook 'csharp-mode-hook 'eglot-ensure)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Eshell
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; To clear eshell, type `clear t`, NOT just `clear`
+;; http://mbork.pl/2019-10-21_Clearing_the_Eshell_buffer
+;; https://irreal.org/blog/?p=8396
+
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; JavaScript
@@ -315,7 +359,7 @@ _SPC_ cancel
  ;; If there is more than one, they won't work right.
  '(org-agenda-files '("~/notes/") t)
  '(package-selected-packages
-   '(ttl-mode yasnippet which-key web-mode use-package rainbow-delimiters pyvenv python-isort pyenv-mode projectile prettier-js powerline plantuml-mode lsp-jedi hydra highlight-indentation flycheck diff-hl counsel company-anaconda blacken avy)))
+   '(eglot csharp-mode lua-mode ttl-mode yasnippet which-key web-mode use-package rainbow-delimiters pyvenv python-isort pyenv-mode prettier-js powerline plantuml-mode lsp-jedi hydra highlight-indentation flycheck diff-hl counsel company-anaconda blacken avy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
